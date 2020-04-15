@@ -35,4 +35,5 @@ RUN cp /opt/conda/pkgs/osra-2.0.1-0/share/spelling.txt /opt/conda/envs/chembl-be
 COPY src/chembl_beaker chembl_beaker
 COPY beaker.conf beaker.conf
 
+# python chembl_beaker/run_beaker.py -p beaker.conf
 ENTRYPOINT [ "python", "chembl_beaker/run_beaker.py", "-p", "beaker.conf" ]
