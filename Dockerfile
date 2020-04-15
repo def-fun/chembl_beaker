@@ -4,10 +4,12 @@ ENV PYTHONUNBUFFERED 1
 
 # install required ubuntu packages
 RUN apt-get update --fix-missing && \
-    apt-get install -y --no-install-recommends ca-certificates libxrender1 libxext6 wget bzip2 libgraphicsmagick++3 libopenbabel4 libpotrace0 && \
+    apt-get install -y --no-install-recommends ca-certificates libxrender1 libxext6 wget bzip2 libgraphicsmagick++3 libopenbabel4 libpotrace0 nano && \
     apt-get -qq -y autoremove && \
     apt-get autoclean && \
-    rm -rf /var/lib/apt/lists/* /var/log/dpkg.log
+    rm -rf /var/lib/apt/lists/* /var/log/dpkg.log && \
+    echo 'alias ls="ls --color=auto"' > ~/.bashrc && \
+    echo 'PS1="\[\e[1;31m\]\u\[\e[m\]\[\e[1;31m\]@\[\e[m\]\[\e[1;31m\]\h\[\e[m\]:\w\$ "' >> ~/.bashrc
 
 # install miniconda
 RUN wget --quiet https://repo.continuum.io/miniconda/Miniconda3-4.7.12.1-Linux-x86_64.sh -O ~/miniconda.sh && \
