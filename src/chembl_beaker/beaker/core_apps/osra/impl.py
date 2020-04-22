@@ -22,6 +22,7 @@ def _recogniseImage(img, osra, frmt=None, jaggy=False, adaptive=False, unpaper=0
         arguments.extend(['-u', str(unpaper)])
     if frmt and frmt in ('can', 'smi', 'sdf'):
         arguments.extend(['-f', frmt])
+        arguments.append('-c')  # add surrounding box coordinates
     arguments.append(fpath)
     p = Popen(arguments, stdin=PIPE, stdout=PIPE, stderr=PIPE)
     result, err = p.communicate(input=img)
