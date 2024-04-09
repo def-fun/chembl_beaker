@@ -10,7 +10,6 @@ dependencies:
 - lxml==4.4.1
 - matplotlib==3.1.1
 - pycairo==1.18.1
-- osra==2.0.1
 - chembl_structure_pipeline==1.0.0
 - pip:
     - bottle==0.12.18

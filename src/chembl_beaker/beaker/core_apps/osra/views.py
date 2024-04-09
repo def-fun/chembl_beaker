@@ -18,9 +18,7 @@ def image2ctabView(img, params):
     kwargs['adaptive'] = _parseFlag(params.get('adaptive', False))
     kwargs['unpaper'] = int(params.get('unpaper', 0))
 
-    known_location = '/usr/local/bin/osra'
-    if not os.path.exists(known_location):
-        known_location = '/usr/bin/osra'
+    known_location = '/usr/bin/osra'
     return _image2ctab(img, config.get('osra_binaries_location', known_location), **kwargs)
 
 
